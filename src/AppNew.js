@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled, { createGlobalStyle } from 'styled-components';
 import { HiMenu, HiX } from 'react-icons/hi';
-import wallpaper from './assets/icon-images/wallpaper-1de3c9.jpg';
+import wallpaper from './assets/icon-images/canada.jpg';
 import ExperienceCarousel, { NavButton } from './Experience';
 import PersonalCarousel from './Personal';
 
@@ -28,6 +28,13 @@ const AppNew = () => {
   const [activeSection, setActiveSection] = useState('hero');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -35,6 +42,37 @@ const AppNew = () => {
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
+  };
+
+  const openContactModal = () => {
+    setContactModalOpen(true);
+  };
+
+  const closeContactModal = () => {
+    setContactModalOpen(false);
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  };
+
+  const handleFormChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    
+    // Create mailto link with form data
+    const mailtoLink = `mailto:mitchellgsides@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+      `From: ${formData.name} (${formData.email})\n\n${formData.message}`
+    )}`;
+    
+    // Try to open mailto link
+    window.location.href = mailtoLink;
+    
+    // Close modal
+    closeContactModal();
   };
 
 
@@ -146,10 +184,74 @@ const AppNew = () => {
       {/* Bottom Contact Hero for style */}
       <BottomHeroSection id="bottom-hero">
         <HeroContent>
-          <MainTitle>Contact</MainTitle>
-          <SubTitle>Get in Touch</SubTitle>
+            <MainTitle>Contact</MainTitle>
+            <HeroContactLink 
+              onClick={openContactModal}
+            >
+              Get in Touch
+            </HeroContactLink>
         </HeroContent>
       </BottomHeroSection>
+
+      {/* Contact Modal */}
+      {contactModalOpen && (
+        <ContactModal onClick={closeContactModal}>
+          <ContactModalContent onClick={(e) => e.stopPropagation()}>
+            <ContactModalHeader>
+              <ContactModalTitle>Get in Touch</ContactModalTitle>
+              <CloseButton onClick={closeContactModal}>&times;</CloseButton>
+            </ContactModalHeader>
+            
+            <ContactForm onSubmit={handleFormSubmit}>
+              <FormGroup>
+                <FormLabel>Name</FormLabel>
+                <FormInput
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  required
+                />
+              </FormGroup>
+              
+              <FormGroup>
+                <FormLabel>Email</FormLabel>
+                <FormInput
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  required
+                />
+              </FormGroup>
+              
+              <FormGroup>
+                <FormLabel>Subject</FormLabel>
+                <FormInput
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleFormChange}
+                  required
+                />
+              </FormGroup>
+              
+              <FormGroup>
+                <FormLabel>Message</FormLabel>
+                <FormTextarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleFormChange}
+                  rows="5"
+                  required
+                />
+              </FormGroup>
+              
+              <SubmitButton type="submit">Send Message</SubmitButton>
+            </ContactForm>
+          </ContactModalContent>
+        </ContactModal>
+      )}
 
       <ContactSection id="contact">
   <ContactContainer>
@@ -593,6 +695,183 @@ const FooterCredit = styled.p.withConfig({
   
   @media (max-width: ${breakpoints.tablet}) {
     text-align: center;
+  }
+`;
+
+// Contact Link for Hero Section
+const HeroContactLink = styled.button.withConfig({
+  displayName: 'HeroContactLink'
+})`
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-family: 'Host Grotesk', sans-serif;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 12px 24px;
+  border-radius: 4px;
+  
+  &:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.02);
+  }
+  
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 1.3rem;
+    padding: 10px 20px;
+  }
+  
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 1.1rem;
+    padding: 8px 16px;
+  }
+`;
+
+// Modal Components
+const ContactModal = styled.div.withConfig({
+  displayName: 'ContactModal'
+})`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+`;
+
+const ContactModalContent = styled.div.withConfig({
+  displayName: 'ContactModalContent'
+})`
+  background: ${isLightMode ? '#fff' : '#1a1a1a'};
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+`;
+
+const ContactModalHeader = styled.div.withConfig({
+  displayName: 'ContactModalHeader'
+})`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+`;
+
+const ContactModalTitle = styled.h2.withConfig({
+  displayName: 'ContactModalTitle'
+})`
+  font-family: 'Host Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: ${isLightMode ? '#000' : '#fff'};
+  margin: 0;
+`;
+
+const CloseButton = styled.button.withConfig({
+  displayName: 'CloseButton'
+})`
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: ${isLightMode ? '#666' : '#999'};
+  cursor: pointer;
+  line-height: 1;
+  
+  &:hover {
+    color: ${isLightMode ? '#000' : '#fff'};
+  }
+`;
+
+const ContactForm = styled.form.withConfig({
+  displayName: 'ContactForm'
+})`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
+const FormGroup = styled.div.withConfig({
+  displayName: 'FormGroup'
+})`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+const FormLabel = styled.label.withConfig({
+  displayName: 'FormLabel'
+})`
+  font-family: 'Host Grotesk', sans-serif;
+  font-weight: 500;
+  color: ${isLightMode ? '#000' : '#fff'};
+`;
+
+const FormInput = styled.input.withConfig({
+  displayName: 'FormInput'
+})`
+  padding: 0.75rem;
+  border: 1px solid ${isLightMode ? '#ddd' : '#555'};
+  border-radius: 4px;
+  font-family: 'Host Grotesk', sans-serif;
+  font-size: 1rem;
+  background: ${isLightMode ? '#fff' : '#2a2a2a'};
+  color: ${isLightMode ? '#000' : '#fff'};
+  
+  &:focus {
+    outline: none;
+    border-color: ${isLightMode ? '#000' : '#fff'};
+  }
+`;
+
+const FormTextarea = styled.textarea.withConfig({
+  displayName: 'FormTextarea'
+})`
+  padding: 0.75rem;
+  border: 1px solid ${isLightMode ? '#ddd' : '#555'};
+  border-radius: 4px;
+  font-family: 'Host Grotesk', sans-serif;
+  font-size: 1rem;
+  background: ${isLightMode ? '#fff' : '#2a2a2a'};
+  color: ${isLightMode ? '#000' : '#fff'};
+  resize: vertical;
+  min-height: 120px;
+  
+  &:focus {
+    outline: none;
+    border-color: ${isLightMode ? '#000' : '#fff'};
+  }
+`;
+
+const SubmitButton = styled.button.withConfig({
+  displayName: 'SubmitButton'
+})`
+  padding: 0.75rem 1.5rem;
+  background: ${isLightMode ? '#000' : '#fff'};
+  color: ${isLightMode ? '#fff' : '#000'};
+  border: none;
+  border-radius: 4px;
+  font-family: 'Host Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: ${isLightMode ? '#333' : '#ddd'};
+    transform: scale(1.02);
   }
 `;
 
