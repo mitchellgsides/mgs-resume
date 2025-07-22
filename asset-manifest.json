@@ -1,8 +1,8 @@
 {
-  "main.js": "/mgs-resume/static/js/main.d2368a96.chunk.js",
-  "main.js.map": "/mgs-resume/static/js/main.d2368a96.chunk.js.map",
-  "static/js/1.e0049455.chunk.js": "/mgs-resume/static/js/1.e0049455.chunk.js",
-  "static/js/1.e0049455.chunk.js.map": "/mgs-resume/static/js/1.e0049455.chunk.js.map",
+  "main.js": "/mgs-resume/static/js/main.e75ba758.chunk.js",
+  "main.js.map": "/mgs-resume/static/js/main.e75ba758.chunk.js.map",
+  "static/js/1.070b99c6.chunk.js": "/mgs-resume/static/js/1.070b99c6.chunk.js",
+  "static/js/1.070b99c6.chunk.js.map": "/mgs-resume/static/js/1.070b99c6.chunk.js.map",
   "runtime~main.js": "/mgs-resume/static/js/runtime~main.7f1fa9bd.js",
   "runtime~main.js.map": "/mgs-resume/static/js/runtime~main.7f1fa9bd.js.map",
   "static/media/Tetons2.jpg": "/mgs-resume/static/media/Tetons2.af2dbf54.jpg",
@@ -18,13 +18,12 @@
   "static/media/github-icon.svg": "/mgs-resume/static/media/github-icon.ad84e47a.svg",
   "static/media/Elevate-reduced.jpg": "/mgs-resume/static/media/Elevate-reduced.31bcd771.jpg",
   "static/media/Tetons.jpg": "/mgs-resume/static/media/Tetons.44e7f39b.jpg",
+  "static/media/canada.jpg": "/mgs-resume/static/media/canada.4e4dee4c.jpg",
   "static/media/maroon_bells.jpg": "/mgs-resume/static/media/maroon_bells.f8706689.jpg",
-  "static/media/wallpaper-1de3c9.jpg": "/mgs-resume/static/media/wallpaper-1de3c9.d35e9a9d.jpg",
   "static/media/switzerland.jpg": "/mgs-resume/static/media/switzerland.211b5ff7.jpg",
   "static/media/switzerland2.jpg": "/mgs-resume/static/media/switzerland2.cfc53f30.jpg",
-  "static/media/canada.jpg": "/mgs-resume/static/media/canada.4e4dee4c.jpg",
   "static/media/lake-city.jpg": "/mgs-resume/static/media/lake-city.b2d4cd48.jpg",
   "index.html": "/mgs-resume/index.html",
-  "precache-manifest.79491c4876480ac3e3ced4786548a2d5.js": "/mgs-resume/precache-manifest.79491c4876480ac3e3ced4786548a2d5.js",
+  "precache-manifest.5942131c6a7aebddedc1ed1b603de3b9.js": "/mgs-resume/precache-manifest.5942131c6a7aebddedc1ed1b603de3b9.js",
   "service-worker.js": "/mgs-resume/service-worker.js"
 }
