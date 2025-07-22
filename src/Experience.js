@@ -44,10 +44,10 @@ const ExperienceCarousel = () => {
                 initial="hidden"
                 animate={index === currentJobIndex ? "visible" : "hidden"}
               >
-                <CardImage image={job.image}>
+                <CardImage image={job.image.location}>
                   <PhotoCredit>
                     <FaCamera size="12px" />
-                    <span>Lydia Sides</span>
+                    <span>{job.image.credit}</span>
                   </PhotoCredit>
                 </CardImage>
 

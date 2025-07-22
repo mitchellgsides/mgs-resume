@@ -59,10 +59,10 @@ const PersonalCarousel = () => {
                 initial="hidden"
                 animate={index === currentItemIndex ? "visible" : "hidden"}
               >
-                <CardImage image={item.image}>
+                <CardImage image={item.image.location}>
                   <PhotoCredit>
                     <FaCamera size="12px" />
-                    <span>Lydia Sides</span>
+                    <span>{item.image.credit}</span>
                   </PhotoCredit>
                 </CardImage>
                 <SectionContent>

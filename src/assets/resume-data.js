@@ -8,7 +8,7 @@ export const jobs = [
     position: 'Senior Software Engineer',
     duration: 'June 2021 - April 2025',
     location: 'Reno, NV, USA',
-    image: elevate,
+    image: { location: elevate, credit: 'Dan Munson' },
     bullets: [
       'Delivered a seamless user experience across web, mobile, and desktop platforms in front-end development with React, React Native, Electron, and TypeScript, implementing reusable component libraries and established design patterns using Webpack.',
       'Enhanced code quality and maintainability in an agile, cross-functional environment by championing code reviews, promoting best practices, and leveraging strong communication skills with product, design, and engineering teams.',
@@ -24,7 +24,7 @@ export const jobs = [
     position: 'Software Engineer',
     duration: 'March 2020 - June 2021',
     location: 'Austin, TX, USA',
-    image: tetons,
+    image: { location: tetons2, credit: 'Lydia Sides' },
     bullets: [
       'Improved application usability and scalability by leading the migration of legacy Django template pages to a modern React architecture using React, TypeScript, and CSS, resulting in a cleaner, more organized codebase and enhanced user experience.',
       'Enhanced frontend reliability and maintainability by implementing React Context and Hooks during a major refactor, streamlining state management and supporting consistent UI patterns.',
@@ -38,7 +38,7 @@ export const jobs = [
     position: 'Front End Developer',
     duration: 'June 2019 - January 2020',
     location: 'Austin, TX, USA',
-    image: tetons2,
+    image: { location: tetons, credit: 'Lydia Sides' },
     bullets: [
       'Enhanced product scalability and maintainability by developing modular front-end architecture for SDK integration using React, Redux, and TypeScript, streamlining feature delivery.',
       'Improved user experience and accessibility by implementing accessible, responsive UI features for Stripe Payments and Intercom Customer Support integrations, adhering to usability best practices.',
