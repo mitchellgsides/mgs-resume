@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { jobs } from './assets/resume-data'; // Assuming you have a file that exports the jobs data
-import { FaCircleChevronLeft, FaCircleChevronRight } from 'react-icons/fa6';
+import { FaCircleChevronLeft, FaCircleChevronRight, FaCamera } from 'react-icons/fa6';
 
 const isLightMode = true;
 const devBorders = false;
@@ -44,7 +44,12 @@ const ExperienceCarousel = () => {
                 initial="hidden"
                 animate={index === currentJobIndex ? "visible" : "hidden"}
               >
-                <CardImage image={job.image} />
+                <CardImage image={job.image}>
+                  <PhotoCredit>
+                    <FaCamera size="12px" />
+                    <span>Lydia Sides</span>
+                  </PhotoCredit>
+                </CardImage>
 
                 <SectionContent>
                   <SectionHeader>
@@ -168,6 +173,7 @@ export const CardImage = styled.div.withConfig({
   background-position: center;
   background-repeat: no-repeat;
   margin-top: 0.5rem;
+  position: relative;
 `;
 
 export const ButtonGroup = styled.div.withConfig({
@@ -349,5 +355,24 @@ export const NavButton = styled(motion.button).withConfig({
   
   &:hover {
     transform: scale(1.1);
+  }
+`;
+
+export const PhotoCredit = styled.div.withConfig({
+  displayName: 'PhotoCredit'
+})`
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  
+  span {
+    margin-left: 0.2rem;
+    font-size: 0.7rem;
   }
 `;

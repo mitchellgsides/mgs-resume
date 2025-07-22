@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import styled from 'styled-components';
 import { personalData } from '../src/assets/personal-data'
-import { FaCircleChevronLeft, FaCircleChevronRight } from 'react-icons/fa6';
+import { FaCamera, FaCircleChevronLeft, FaCircleChevronRight } from 'react-icons/fa6';
 import { 
   CarouselContainer, 
   CarouselTrack, 
@@ -18,7 +16,8 @@ import {
   SectionContent,
   SectionDetail,
   SectionHeader,
-  SectionDescription
+  SectionDescription,
+  PhotoCredit
 } from './Experience';
 
 const isLightMode = true;
@@ -60,8 +59,12 @@ const PersonalCarousel = () => {
                 initial="hidden"
                 animate={index === currentItemIndex ? "visible" : "hidden"}
               >
-                <CardImage image={item.image} />
-
+                <CardImage image={item.image}>
+                  <PhotoCredit>
+                    <FaCamera size="12px" />
+                    <span>Lydia Sides</span>
+                  </PhotoCredit>
+                </CardImage>
                 <SectionContent>
                   <SectionHeader>
                     <SubTitle>
