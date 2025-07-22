@@ -155,7 +155,7 @@ class App extends Component {
 
 export default withRouter(App);
 
-const HoverButton = styled.button`
+export const HoverButton = styled.button`
   position: fixed; 
   top: 20px; 
   right: 20px; 

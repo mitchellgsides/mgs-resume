@@ -122,16 +122,3 @@ const PersonalCarousel = () => {
 };
 
 export default PersonalCarousel;
-
-// Styled Components
-
-const ItemDuration = styled(motion.div).withConfig({
-  displayName: 'ItemDuration'
-})`
-  display: flex;
-  align-items: center;
-  font-size: 0.9rem;
-  opacity: 0.8;
-  justify-self: flex-end;
-  color: ${isLightMode ? '#666' : '#ccc'};
-`;

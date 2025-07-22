@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react'
 // import DogBox from './DogBox'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { colors } from '../../utils/colors'
 import { technologies } from '../TechExperience/index'
 import TechItem from '../TechExperience/TechItem'
 
