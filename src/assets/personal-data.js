@@ -1,4 +1,3 @@
-import tetons from './icon-images/Tetons.jpg';
 import tetons2 from './icon-images/Tetons2.jpg';
 import switzerland from './icon-images/switzerland.jpg';
 import switzerland2 from './icon-images/switzerland2.jpg';
