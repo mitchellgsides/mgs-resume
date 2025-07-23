@@ -7,26 +7,18 @@ import lakeCity from './icon-images/lake-city.jpg';
 
 export const personalData = [
     {
-      title: 'Cycling',
+      title: 'Cycling & Triathlon',
       category: 'Sport & Fitness',
-      description: 'Passionate about road cycling and mountain biking.',
+      description: 'Passionate about road cycling and triathlon.',
       image: { location: switzerland, credit: 'Lydia Sides' },
       bullets: [
-        'Regular participation in local cycling events and races.',
+        '4x Ironman triathlon finisher.',
+        'Cycling: Regular participation in local cycling events and races.',
         'Enjoy exploring scenic routes and challenging climbs.',
         'Active member of local cycling community.'
-      ]
-    },
-    {
-      title: 'Triathlon',
-      category: 'Endurance Sports',
-      description: 'Multi-sport athlete focusing on swim, bike, run disciplines.',
-      image: { location: tetons2, credit: 'Lydia Sides' },
-      bullets: [
-        'Completed multiple sprint and Olympic distance triathlons.',
-        'Training includes structured workouts across all three disciplines.',
-        'Enjoy the mental and physical challenges of endurance racing.'
-      ]
+      ],
+      width: 300,
+      height: 300,
     },
     {
       title: 'Hiking',
@@ -37,7 +29,9 @@ export const personalData = [
         'Regular weekend hikes on local and regional trails.',
         'Enjoy both day hikes and multi-day backpacking trips.',
         'Photography enthusiast capturing landscapes and wildlife.'
-      ]
+      ],
+      width: 600,
+      height: 300,
     },
     {
       title: 'Camping',
@@ -48,7 +42,9 @@ export const personalData = [
         'Car camping and backpacking in national and state parks.',
         'Love campfire cooking and stargazing.',
         'Family camping trips to create lasting memories.'
-      ]
+      ],
+      width: 600,
+      height: 300,
     },
     {
       title: 'Fatherhood',
@@ -59,7 +55,9 @@ export const personalData = [
         'Enjoy teaching kids about outdoor activities and sports.',
         'Family bike rides and nature walks are favorite activities.',
         'Balancing work, personal interests, and quality family time.'
-      ]
+      ],
+      width: 400,
+      height: 300,
     },
     {
       title: "Travel",
@@ -70,6 +68,8 @@ export const personalData = [
         "Visited multiple countries including Switzerland, Canada, England, Colombia, Czech Republic and Italy.",
         "Enjoys photography and documenting travel experiences.",
         "Believes in the enriching experience of cultural exchange."
-      ]
+      ],
+      width: 300,
+      height: 300,
     }
   ];

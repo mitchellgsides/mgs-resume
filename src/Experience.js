@@ -129,6 +129,9 @@ export const SectionContainer = styled.section.withConfig({
   @media (max-width: 809px) {
     padding: 0.5rem 5vw;
     padding-top: 4rem;
+    height: 100%;
+    justify-content: center;
+    padding: 0;
   }
 `;
 
