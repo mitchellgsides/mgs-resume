@@ -394,16 +394,31 @@ const Logo = styled(NavButton).withConfig({
   color: ${props => {
     const maxScroll = 500;
     const opacity = Math.min(props.scrollY / maxScroll, 0.8);
+    
     // Start light, transition to dark as background opacity increases
     if (isLightMode) {
-      return `rgba(${255 - (255 * opacity)}, ${255 - (255 * opacity)}, ${255 - (255 * opacity)}, ${opacity})`;
+      return `rgba(${255 - (255 * opacity)}, ${255 - (255 * opacity)}, ${255 - (255 * opacity)}, 1)`;
     } else {
-      return `rgba(${255 * opacity}, ${255 * opacity}, ${255 * opacity}, ${opacity})`;
+      // Start dark, transition to light as background opacity increases
+      return `rgba(${255 * opacity}, ${255 * opacity}, ${255 * opacity}, 1)`;
     }
-  }};
-  font-weight: 600;
-  font-family: 'Host Grotesk', sans-serif;
-`;
+    }};
+    font-weight: 600;
+    font-family: 'Host Grotesk', sans-serif;
+    
+    /* Add background image that fades in with scroll */
+    background-image: url(${wallpaper});
+    background-size: cover;
+    background-position: center;
+    opacity: ${props => {
+    const maxScroll = 500;
+    return Math.min(props.scrollY / maxScroll, 0.8);
+    }};
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  `;
 
 // Mobile Menu Components
 const MobileMenuButton = styled.button.withConfig({
