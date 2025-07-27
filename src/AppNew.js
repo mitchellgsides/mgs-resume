@@ -4,6 +4,7 @@ import { HiMenu, HiX } from 'react-icons/hi';
 import wallpaper from './assets/icon-images/canada.jpg';
 import ExperienceCarousel, { NavButton } from './Experience';
 import PersonalCarousel from './Personal';
+import JobAnalyzer from './ResumeAnalysis';
 
 // Global styles for fonts
 const GlobalFonts = createGlobalStyle`
@@ -133,6 +134,13 @@ const AppNew = () => {
             >
               Personal
             </NavItem>
+            <NavItem
+              scrollY={scrollY}
+              active={activeSection === 'resume-analysis'}
+              onClick={() => scrollToSection('resume-analysis')}
+            >
+              Resume Analysis
+            </NavItem>
             <NavItem 
               scrollY={scrollY}
               active={activeSection === 'bottom-hero'}
@@ -162,6 +170,12 @@ const AppNew = () => {
           >
             Personal
           </MobileNavItem>
+          <MobileNavItem
+            active={activeSection === 'resume-analysis'}
+            onClick={() => scrollToSection('resume-analysis')}
+          >
+            Resume Analysis
+          </MobileNavItem>
           <MobileNavItem 
             active={activeSection === 'bottom-hero'}
             onClick={() => scrollToSection('bottom-hero')}
@@ -180,6 +194,7 @@ const AppNew = () => {
 
       <ExperienceCarousel />
       <PersonalCarousel />
+      <JobAnalyzer />
 
       {/* Bottom Contact Hero for style */}
       <BottomHeroSection id="bottom-hero">

@@ -11,17 +11,7 @@ import styled from 'styled-components';
 const isLightMode = true;
 
 const PersonalCarousel = () => {
-  const [currentItemIndex, setCurrentItemIndex] = useState(0);
   const [flippedCards, setFlippedCards] = useState({});
-  const carouselRef = useRef(null);
-
-  const nextItem = () => {
-    setCurrentItemIndex((prev) => (prev + 1) % personalData.length);
-  };
-
-  const prevItem = () => {
-    setCurrentItemIndex((prev) => (prev - 1 + personalData.length) % personalData.length);
-  };
 
   const handleCardClick = (index) => {
     setFlippedCards(prev => ({
@@ -30,15 +20,6 @@ const PersonalCarousel = () => {
     }));
   };
 
-  useEffect(() => {
-    if (carouselRef.current) {
-      const cardWidth = carouselRef.current.offsetWidth;
-      carouselRef.current.scrollTo({
-        left: currentItemIndex * cardWidth,
-        behavior: 'smooth'
-      });
-    }
-  }, [currentItemIndex]);
 
   return (
       <SectionContainer id="personal">
