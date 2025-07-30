@@ -59,17 +59,4 @@ export const personalData = [
       width: 400,
       height: 300,
     },
-    {
-      title: "Travel",
-      category: "Exploration",
-      description: "Avid traveler with a passion for exploring new cultures and landscapes.",
-      image: { location: switzerland2, credit: 'Lydia Sides' },
-      bullets: [
-        "Visited multiple countries including Switzerland, Canada, England, Colombia, Czech Republic and Italy.",
-        "Enjoys photography and documenting travel experiences.",
-        "Believes in the enriching experience of cultural exchange."
-      ],
-      width: 300,
-      height: 300,
-    }
   ];

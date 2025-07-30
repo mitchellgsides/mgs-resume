@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { personalData } from './assets/personal-data'
 import { FaCamera, } from 'react-icons/fa6';
 import { 
